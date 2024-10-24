@@ -36,11 +36,13 @@ char* Chaine::chaineC() const {
 	char* tmp = 0;
 	int length = this->getLen();
 	tmp = new char[length + 1];
-	tmp[length] = '\0';
+	tmp[length] = 0;
 
 	for(int i = 0; i < length; i++) {
 		tmp[i] = this->getCar(i);
 	}
+
+	return tmp;
 }
 
 std::ostream& operator<< (std::ostream& out, const Chaine& chaine) {

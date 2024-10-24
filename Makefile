@@ -1,7 +1,7 @@
 run: all
 
 all: main chaine
-	g++ -o a.out obj/main.o obj/chaine.o
+	g++ -o a.exe obj/main.o obj/chaine.o
 
 main: obj src/main.cpp
 	g++ -c src/main.cpp -o obj/main.o
