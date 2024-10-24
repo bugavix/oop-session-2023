@@ -7,6 +7,7 @@
 #include "../headers/chaine.hpp"
 #include "../headers/chaine_ext.hpp"
 #include "../headers/mot.hpp"
+#include "../headers/dictio.hpp"
 
 int main() {
 	std::cout << "\n** Program Start\n";
@@ -61,6 +62,37 @@ int main() {
 	std::cout << "m1 == m2: " << (m1 == m2) << std::endl;
 	std::cout << "m1 == m3: " << (m1 == m3) << std::endl;
 	std::cout << "m1 < m3: " << (m1 < m3) << std::endl;
+
+	// Testing 4:
+	std::cout << "\n** Testing section 4 code:\n";
+	Dictio d1("input.txt");
+	Dictio d2;
+
+	std::cout << "d1:\n" << d1 << "d2: (Normally empty)\n" << d2 << std::endl;
+	Traduction t1;
+	t1.ang = "english";
+	t1.esp = "engles";
+	d2.add_entry("anglais", t1);
+	std::cout << "d2 after adding an entry: ";
+	d2.print_lowercase();
+	d2.modify_translation("anglais", LANG::ESP, "ingles");
+	std::cout << "d2 after modifying an entry:";
+	d2.print_lowercase();
+	std::cout << "Translation of anglais according to d2: " << d2.give_translation("anglais", LANG::ANG) << std::endl;
+	std::cout << "Adding the 'anglais' entry to d1:";
+	d1.add_entry("anglais", t1);
+	d1.print_lowercase();
+	std::cout << "Adding all of d1 to d2:";
+	d2.add_from_other(d1);
+	d2.print_lowercase();
+	std::cout << "Updating d1 from d2:";
+	d1.update_from_other(d2);
+	d1.print_lowercase();
+	std::cout << "Printing d2 to file 'output.txt':" << std::endl;
+	d2.save_to_file("output.txt");
+
+	// Program End
+	std::cout << "\n** Program End\n";
 
 	return 0;
 }

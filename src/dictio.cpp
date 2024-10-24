@@ -10,6 +10,12 @@ Dictio::Dictio() {
 
 Dictio::Dictio(const char* file_path) {
 	std::ifstream in(file_path, std::ifstream::in);
+
+	if(!in.is_open()) {
+		std::cout << "Error opening file " << file_path << " ...\n";
+		return;
+	}
+
 	char buffer[MAX_CHAR + 1];
 
 	while(!in.eof()) {
