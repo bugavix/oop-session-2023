@@ -7,7 +7,7 @@ ChaineExt::ChaineExt() : Chaine() {
 
 }
 
-ChaineExt::ChaineExt(char* c) : Chaine(c) {
+ChaineExt::ChaineExt(const char* c) : Chaine(c) {
 
 }
 
@@ -22,10 +22,10 @@ ChaineExt ChaineExt::lower() const{
 }
 
 int ChaineExt::compare(const ChaineExt& other, bool case_sensitive) const {
-	ChaineExt ch1 = (case_sensitive) ? this->lower() : *this;
-	ChaineExt ch2 = (case_sensitive) ? other.lower() : other;
+	char* str1 = this->chaineC();
+	char* str2 = other.chaineC();
 
-	return strcmp(ch1.chaineC(), ch2.chaineC());
+	return (case_sensitive) ? strcmp(str1, str2) : strcasecmp(str1, str2);
 }
 
 ChaineExt ChaineExt::operator+(const ChaineExt& other) const {
@@ -57,7 +57,7 @@ void ChaineExt::replace(char c1, char c2) {
 
 ChaineExt ChaineExt::sub(int pos, int length) const {
 	ChaineExt tmp;
-	int stop = pos + length;
+	int stop = (pos + length > this->getLen()) ? this->getLen() : pos + length;
 	for(int i = pos; i < stop; i++) {
 		tmp.addCar(this->getCar(i));
 	}

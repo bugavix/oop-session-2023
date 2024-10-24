@@ -25,10 +25,14 @@ int Chaine::getLen() const {
 }
 
 void Chaine::setCar(char c, int i) {
+	i = (i < 0) ? 0 : i;
+	i = (i > this->getLen() - 1) ? this->getLen() - 1 : i;
 	this->caracteres[i] = c;
 }
 
 char Chaine::getCar(int i) const {
+	i = (i < 0) ? 0 : i;
+	i = (i > this->getLen() - 1) ? this->getLen() - 1 : i;
 	return this->caracteres[i];
 }
 
