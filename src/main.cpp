@@ -30,7 +30,7 @@ int main() {
 	delete[] tmp;
 	tmp = 0;
 
-
+	//
 
 	return 0;
 }
