@@ -6,6 +6,7 @@
 #include <iostream>
 #include "../headers/chaine.hpp"
 #include "../headers/chaine_ext.hpp"
+#include "../headers/mot.hpp"
 
 int main() {
 	std::cout << "\n** Program Start\n";
@@ -48,6 +49,18 @@ int main() {
 	std::cout << "ce1.replace('a', 'i') = " << ce1 << std::endl;
 	std::cout << "ce1.sub(2, 5) = " << ce1.sub(2, 5) << std::endl;
 	std::cout << "ce1.sub(2, 15) = " << ce1.sub(2, 15) << std::endl;
+
+	// Testing 3:
+
+	std::cout << "\n** Testing section 3 code:\n";
+	Mot m1("Arc");
+	Mot m2("arc");
+	Mot m3("battery");
+
+	std::cout << "m1 = " << m1 << ", m2 = " << m2 << ", m3 = " << m3 << std::endl;
+	std::cout << "m1 == m2: " << (m1 == m2) << std::endl;
+	std::cout << "m1 == m3: " << (m1 == m3) << std::endl;
+	std::cout << "m1 < m3: " << (m1 < m3) << std::endl;
 
 	return 0;
 }

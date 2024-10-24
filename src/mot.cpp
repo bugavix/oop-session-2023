@@ -9,9 +9,9 @@ Mot::Mot(const char* c) : ChaineExt(c) {
 }
 
 bool Mot::operator==(const Mot& other) const {
-	return !(this->compare(other));
+	return !(this->compare(other, false));
 }
 
-bool Mot::operator<(const Mot&) const {
-	return this->compare(other) < 0;
+bool Mot::operator<(const Mot& other) const {
+	return this->compare(other, false) < 0;
 }
